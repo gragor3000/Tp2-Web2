@@ -1,18 +1,19 @@
 <?php
 session_start();
 
-if(!(isset($_SESSION['User']) && $_SESSION['User'] != ''))
+if(!(isset($_SESSION['AdminUser']) && $_SESSION['AdminUser'] != ''))
     header("location: ../HTML/Accueil.php");
 ?>
 <html>
 
 <head>
     <meta charset="utf-8"/>
+    <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="../CSS/TP1.css"/>
-    <link rel="stylesheet" href="../bootstrap-3.3.5-dist/css/sticky-footer.css">
-    <link rel="stylesheet" href="../bootstrap-3.3.5-dist/css/bootstrap.css"/>
-    <link rel="stylesheet" href="../bootstrap-3.3.5-dist/css/bootstrap-theme.css"/>
+    <link rel="stylesheet" href="../../../CSS/TP1.css"/>
+    <link rel="stylesheet" href="../../../bootstrap-3.3.5-dist/css/sticky-footer.css">
+    <link rel="stylesheet" href="../../../bootstrap-3.3.5-dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../../../bootstrap-3.3.5-dist/css/bootstrap-theme.css"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
@@ -57,7 +58,7 @@ if(!(isset($_SESSION['User']) && $_SESSION['User'] != ''))
 
 <div class="container">
     <div class="jumbotron2">
-        <form method="post" action="../PHP/Account.php">
+        <form method="post" action="../../index.php/home/Account.php">
             <h2>Liste des comptes</h2>
             <table class="Account">
                 <tr>
@@ -71,7 +72,6 @@ if(!(isset($_SESSION['User']) && $_SESSION['User'] != ''))
                             <label for="inputPassword" class="sr-only">Password</label>
                             <input name="password" id="inputPassword" type="password" placeholder="Mot de Passe"
                                    class="form-control">
-                            <label>Admin</label> <input name="admin" type="checkbox">
                         </div>
                     </td>
                 </tr>

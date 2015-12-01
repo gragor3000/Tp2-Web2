@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 class Home extends Controller
 {
 	public static function index( $name = '')
@@ -7,7 +7,7 @@ class Home extends Controller
 		//echo "allo " . $name;
 		//$user = $this -> model ('User');
 		//$user->name = $name;
-		parent::view('home/HTML/Accueil', ['name' => $name]);
+		parent::view('home/HTML/Accueil');
 	}
 
 	public static function patate ()
@@ -15,11 +15,21 @@ class Home extends Controller
 		echo "J'aime les patates";
 	}
 
-	public static function login()
+	public function login()
 	{
-		parent::model('/PHP/BD');
-		/*include_once("C:/wamp/www/TP2 Website/app/models/PHP/BD.php");
-		Login($_POST['email'], $_POST['password']);*/
+		parent::model('PHP/BD');
+
+		$value = BD::Login($_POST['email'], $_POST['password']);
+
+		if($value == 1) {
+			$_SESSION['AdminUser'] = $_POST['email'];
+			parent::view('home/HTML/AdminMain');
+		}
+
+		else if($value == 0) {
+			$_SESSION['ClientUser'] = $_POST['email'];
+			parent::view('home/HTML/ClientMain');
+		}
 	}
 
 }
