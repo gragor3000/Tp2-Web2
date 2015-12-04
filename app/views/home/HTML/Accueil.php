@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="../../../bootstrap-3.3.5-dist/css/sticky-footer.css">
     <link rel="stylesheet" href="../../../bootstrap-3.3.5-dist/css/bootstrap.css"/>
     <link rel="stylesheet" href="../../../bootstrap-3.3.5-dist/css/bootstrap-theme.css"/>
-    <link rel="stylesheet" href="../../CSS/TP1.css"/>
-    <link rel="stylesheet" href="../../bootstrap-3.3.5-dist/css/sticky-footer.css">
-    <link rel="stylesheet" href="../../bootstrap-3.3.5-dist/css/bootstrap.css"/>
-    <link rel="stylesheet" href="../../bootstrap-3.3.5-dist/css/bootstrap-theme.css"/>
+    <link rel="stylesheet" href="../CSS/TP1.css"/>
+    <link rel="stylesheet" href="../bootstrap-3.3.5-dist/css/sticky-footer.css">
+    <link rel="stylesheet" href="../bootstrap-3.3.5-dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../bootstrap-3.3.5-dist/css/bootstrap-theme.css"/>
 
 
 </head>
