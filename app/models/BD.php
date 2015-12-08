@@ -4,7 +4,6 @@ session_start();
 
 Class BD
 {
-
     public static function Login($Email, $Password)//load la page de la personne si les info rentre sont bonne et charge la page en fontion
     {
         try {
@@ -20,6 +19,38 @@ Class BD
         $value = $req->fetchAll();
         return $value[0][2];
 
+
+    }
+
+    public static function LoadPastGame()//donne les résultats des games passée
+    {
+        try {
+            $pdo = new PDO('sqlite:../app/Models/bd.db');
+        } catch (PDOException $e) {
+            echo 'Connection failed: ' . $e->getMessage();
+        }
+        $Select = "SELECT * FROM PastScores";
+        $req = $pdo->prepare($Select);
+
+        $req->execute();
+
+        return $req->fetchAll();
+
+    }
+
+    public static function LoadFutureGame()//donne les games future
+    {
+        try {
+            $pdo = new PDO('sqlite:../app/Models/bd.db');
+        } catch (PDOException $e) {
+            echo 'Connection failed: ' . $e->getMessage();
+        }
+        $Select = "SELECT * FROM Future";
+        $req = $pdo->prepare($Select);
+
+        $req->execute();
+
+        return $req->fetchAll();
 
     }
 

@@ -37,7 +37,7 @@ function AddAccount() {//ajoute un compte a la bd
     var inputToken = document.getElementById("inputToken")
     var Token = inputToken.value.toString()
 
-    xmlhttp.open("POST", "../../Models/Account.php", true);
+    xmlhttp.open("POST", "../../app/Models/Account.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send(Email+","+Password+","+Token);
 
@@ -78,11 +78,30 @@ function DeleteAccount() {//supprime un compte de la bd
     var oldEmail = lstEmail.value
     xmlhttp.open("POST", "../../Models/Account.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.send(oldEmail);
+    xmlhttp.send(oldEmail.toString());
 
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 
+
+        }
+    }
+}
+
+function LoadGame()//load les game future et passée
+{
+    var xmlhttp = new XMLHttpRequest();
+    var TablePast = document.getElementById("Past")
+    var TableFuture = document.getElementById("Future")
+    xmlhttp.open("POST", "localhost:8080/TP2-Web2/public/Client/LoadGame", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send("Action=Game");
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            var Tables = xmlhttp.responseText;
+            var TablePast = Tables[0].split(',')
+            var TableFuture = Tables[1].split(',')
 
         }
     }

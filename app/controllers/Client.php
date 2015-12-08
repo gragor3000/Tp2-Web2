@@ -25,9 +25,38 @@ class Client extends Controller
         }
 
         else if($value == 0) {
-            $_SESSION['ClientUser'] = $_POST['email'];
-            parent::view('ClientMain');
+            $_SESSION['MiseurUser'] = $_POST['email'];
+            parent::view('MiseurMain');
         }
+    }
+
+    public static function LoadGame()//retourne un string contenant les stas des parties passé et future
+    {
+        if($_POST["Action"] == "Game")
+        {
+            parent::model('BD');
+            $PastGame = BD::LoadGame();
+            $FutureGame = BD::LoadFutureGame();
+            $StrGame = "";
+
+            /*
+            for($i=0;$i<$PastGame.count();$i++)
+            {
+                $StrGame = $StrGame ."," . $PastGame[$i][1];
+            }
+            $StrGame = $StrGame + "//";
+
+            for($ii=0;$ii<3;$ii++) {
+                for ($i = 0; $i < $PastGame . count(); $i++) {
+                    $StrGame = $StrGame . "," . $FutureGame[$i][$ii];
+                }
+                $StrGame = $StrGame . ";";
+            }*/
+
+            echo json_encode($PastGame);
+
+        }
+
     }
 
 }

@@ -6,18 +6,15 @@ if (!(isset($_SESSION['AdminUser']) && $_SESSION['AdminUser'] != ''))
 ?>
 
 <head>
-    <script src="../app/Views/JS/NFL.js"></script>
-    <script src="JS/NFL.js"></script>
+
+
+    <script src="/Tp2-Web2/public/JS/NFL.js"></script>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="../app/CSS/TP1.css"/>
-    <link rel="stylesheet" href="../app/CSS/bootstrap-3.3.5-dist/css/sticky-footer.css">
-    <link rel="stylesheet" href="../app/CSS/bootstrap-3.3.5-dist/css/bootstrap.css"/>
-    <link rel="stylesheet" href="../app/CSS/bootstrap-3.3.5-dist/css/bootstrap-theme.css"/>
-    <link rel="stylesheet" href="../../../app/CSS/TP1.css"/>
-    <link rel="stylesheet" href="../../../app/CSS/bootstrap-3.3.5-dist/css/sticky-footer.css">
-    <link rel="stylesheet" href="../../../app/CSS/bootstrap-3.3.5-dist/css/bootstrap.css"/>
-    <link rel="stylesheet" href="../../../app/CSS/bootstrap-3.3.5-dist/css/bootstrap-theme.css"/>
+    <link rel="stylesheet" href="/Tp2-Web2/public/CSS/TP1.css"/>
+    <link rel="stylesheet" href="/Tp2-Web2/public/CSS/bootstrap-3.3.5-dist/css/sticky-footer.css">
+    <link rel="stylesheet" href="/Tp2-Web2/public/CSS/bootstrap-3.3.5-dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/Tp2-Web2/public/CSS/bootstrap-3.3.5-dist/css/bootstrap-theme.css"/>
 
     <!-- Bootstrap core CSS -->
 

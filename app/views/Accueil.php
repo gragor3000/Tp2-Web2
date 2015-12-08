@@ -1,25 +1,22 @@
 <?php
-    session_start();
+session_start();
 
 ?>
 <html>
 
 <head>
     <meta charset="utf-8"/>
+    <script src="/Tp2-Web2/public/JS/NFL.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="../app/CSS/TP1.css"/>
-    <link rel="stylesheet" href="../app/CSS/bootstrap-3.3.5-dist/css/sticky-footer.css">
-    <link rel="stylesheet" href="../app/CSS/bootstrap-3.3.5-dist/css/bootstrap.css"/>
-    <link rel="stylesheet" href="../app/CSS/bootstrap-3.3.5-dist/css/bootstrap-theme.css"/>
-    <link rel="stylesheet" href="../../../app/CSS/TP1.css"/>
-    <link rel="stylesheet" href="../../../app/CSS/bootstrap-3.3.5-dist/css/sticky-footer.css">
-    <link rel="stylesheet" href="../../../app/CSS/bootstrap-3.3.5-dist/css/bootstrap.css"/>
-    <link rel="stylesheet" href="../../../app/CSS/bootstrap-3.3.5-dist/css/bootstrap-theme.css"/>
+    <link rel="stylesheet" href="/Tp2-Web2/public/CSS/TP1.css"/>
+    <link rel="stylesheet" href="/Tp2-Web2/public/CSS/bootstrap-3.3.5-dist/css/sticky-footer.css">
+    <link rel="stylesheet" href="/Tp2-Web2/public/CSS/bootstrap-3.3.5-dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/Tp2-Web2/public/CSS/bootstrap-3.3.5-dist/css/bootstrap-theme.css"/>
 
 
 </head>
 
-<body>
+<body onload="LoadGame()">
 
 <div class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -31,7 +28,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Triangle Survey </a>
+            <a class="navbar-brand" href="#">Triangle Football </a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <form class="navbar-form navbar-right" method="post" action="index.php/Client/login">
@@ -41,13 +38,24 @@
                 </div>
                 <div class="form-group">
                     <label for="inputPassword" class="sr-only">Password</label>
-                    <input name="password" id="inputPassword" type="password" placeholder="Mot de Passe" class="form-control">
+                    <input name="password" id="inputPassword" type="password" placeholder="Mot de Passe"
+                           class="form-control">
                 </div>
                 <label>Se souvenir de moi</label> <input type="checkbox">
                 <button type="submit" class="btn btn-success">Connexion</button>
             </form>
         </div>
 
+    </div>
+</div>
+<div class="container">
+    <div class="jumbotron2">
+        <Table id="Past"></Table>
+    </div>
+</div>
+<div class="container">
+    <div class="jumbotron2">
+        <Table id="Future"></Table>
     </div>
 </div>
 
