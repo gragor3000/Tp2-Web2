@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-if(!(isset($_SESSION['ClientUser']) && $_SESSION['ClientUser'] != ''))
-    header("location: ../HTML/Accueil.php");
+if(!(isset($_SESSION['MiseurUser']) && $_SESSION['MiseurUser'] != ''))
+    header("location: Accueil.php");
 
 ?>
 <html>
@@ -10,14 +10,10 @@ if(!(isset($_SESSION['ClientUser']) && $_SESSION['ClientUser'] != ''))
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="../app/CSS/TP1.css"/>
-    <link rel="stylesheet" href="../app/CSS/bootstrap-3.3.5-dist/css/sticky-footer.css">
-    <link rel="stylesheet" href="../app/CSS/bootstrap-3.3.5-dist/css/bootstrap.css"/>
-    <link rel="stylesheet" href="../app/CSS/bootstrap-3.3.5-dist/css/bootstrap-theme.css"/>
-    <link rel="stylesheet" href="../../../app/CSS/TP1.css"/>
-    <link rel="stylesheet" href="../../../app/CSS/bootstrap-3.3.5-dist/css/sticky-footer.css">
-    <link rel="stylesheet" href="../../../app/CSS/bootstrap-3.3.5-dist/css/bootstrap.css"/>
-    <link rel="stylesheet" href="../../../app/CSS/bootstrap-3.3.5-dist/css/bootstrap-theme.css"/>
+    <link rel="stylesheet" href="/CSS/TP1.css"/>
+    <link rel="stylesheet" href="/CSS/bootstrap-3.3.5-dist/css/sticky-footer.css">
+    <link rel="stylesheet" href="/CSS/bootstrap-3.3.5-dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/CSS/bootstrap-3.3.5-dist/css/bootstrap-theme.css"/>
 
     <!-- Bootstrap core CSS -->
 

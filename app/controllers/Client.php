@@ -28,35 +28,21 @@ class Client extends Controller
             $_SESSION['MiseurUser'] = $_POST['email'];
             parent::view('MiseurMain');
         }
+        elseif($value == -1)
+            parent::view('Accueil');
     }
 
-    public static function LoadGame()//retourne un string contenant les stas des parties passé et future
+    public static function LoadPastGame()//retourne les stats des parties passée
     {
-        if($_POST["Action"] == "Game")
-        {
             parent::model('BD');
-            $PastGame = BD::LoadGame();
-            $FutureGame = BD::LoadFutureGame();
-            $StrGame = "";
-
-            /*
-            for($i=0;$i<$PastGame.count();$i++)
-            {
-                $StrGame = $StrGame ."," . $PastGame[$i][1];
-            }
-            $StrGame = $StrGame + "//";
-
-            for($ii=0;$ii<3;$ii++) {
-                for ($i = 0; $i < $PastGame . count(); $i++) {
-                    $StrGame = $StrGame . "," . $FutureGame[$i][$ii];
-                }
-                $StrGame = $StrGame . ";";
-            }*/
-
+            $PastGame = BD::LoadPastGame();
             echo json_encode($PastGame);
-
-        }
-
     }
+
+    public static function LoadFutureGame()//retourne les stats des parties future
+    {
+            parent::model('BD');
+            $FutureGame = BD::LoadFutureGame();
+            echo json_encode($FutureGame);    }
 
 }

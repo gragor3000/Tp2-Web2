@@ -6,12 +6,12 @@ session_start();
 
 <head>
     <meta charset="utf-8"/>
-    <script src="/Tp2-Web2/public/JS/NFL.js"></script>
+    <script src="/JS/NFL.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="/Tp2-Web2/public/CSS/TP1.css"/>
-    <link rel="stylesheet" href="/Tp2-Web2/public/CSS/bootstrap-3.3.5-dist/css/sticky-footer.css">
-    <link rel="stylesheet" href="/Tp2-Web2/public/CSS/bootstrap-3.3.5-dist/css/bootstrap.css"/>
-    <link rel="stylesheet" href="/Tp2-Web2/public/CSS/bootstrap-3.3.5-dist/css/bootstrap-theme.css"/>
+    <link rel="stylesheet" href="/CSS/TP1.css"/>
+    <link rel="stylesheet" href="/CSS/bootstrap-3.3.5-dist/css/sticky-footer.css">
+    <link rel="stylesheet" href="/CSS/bootstrap-3.3.5-dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/CSS/bootstrap-3.3.5-dist/css/bootstrap-theme.css"/>
 
 
 </head>
@@ -31,7 +31,7 @@ session_start();
             <a class="navbar-brand" href="#">Triangle Football </a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-            <form class="navbar-form navbar-right" method="post" action="index.php/Client/login">
+            <form class="navbar-form navbar-right" method="post" action="/Client/login">
                 <div class="form-group">
                     <label for="inputEmail" class="sr-only">Email address</label>
                     <input name="email" id="inputEmail" type="email" placeholder="Email" class="form-control">

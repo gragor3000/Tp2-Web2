@@ -17,7 +17,11 @@ Class BD
         $req->bindValue(':Password', md5($Password));
         $req->execute();
         $value = $req->fetchAll();
+        if($value[0][2] == NULL)
+            return -1;
+
         return $value[0][2];
+        $pdo = null;
 
 
     }

@@ -39,7 +39,7 @@ function AddAccount() {//ajoute un compte a la bd
 
     xmlhttp.open("POST", "../../app/Models/Account.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.send(Email+","+Password+","+Token);
+    xmlhttp.send(Email + "," + Password + "," + Token);
 
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -62,7 +62,7 @@ function ModifyAccount() {//modifie un compte de la bd
 
     xmlhttp.open("POST", "../../Models/Account.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.send(oldEmail+","+Email+","+Password+","+Token);
+    xmlhttp.send(oldEmail + "," + Email + "," + Password + "," + Token);
 
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -91,21 +91,59 @@ function DeleteAccount() {//supprime un compte de la bd
 function LoadGame()//load les game future et passée
 {
     var xmlhttp = new XMLHttpRequest();
-    var TablePast = document.getElementById("Past")
-    var TableFuture = document.getElementById("Future")
-    xmlhttp.open("POST", "localhost:8080/TP2-Web2/public/Client/LoadGame", true);
+
+    xmlhttp.open("POST", "/Client/LoadPastGame", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.send("Action=Game");
+    xmlhttp.send("");
 
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            var Tables = xmlhttp.responseText;
-            var TablePast = Tables[0].split(',')
-            var TableFuture = Tables[1].split(',')
+            var Table = xmlhttp.responseText;
+            PastScore(Table);
+        }
+    }
+    LoadFutureGame();
 
+}
+
+function LoadFutureGame() {
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.open("POST", "/Client/LoadFutureGame", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send("");
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            var Table = xmlhttp.responseText;
+            FutureScore(Table);
         }
     }
 }
+
+function PastScore(TablePast) {
+    var Table = document.getElementById("Past")
+    //for(var i = 0;i<TablePast.length;i++)
+    //{
+
+    var str = TablePast.split(",")
+    for(var i = 0;i<str.length;i++) {
+        var tr = document.createElement("tr");
+        var td = document.createElement("td");
+        td.appendChild(document.createTextNode(str[i]));
+        td.setAttribute("id", i.toString());
+        tr.appendChild(td);
+        Table.appendChild(tr);
+    }
+
+
+    //}
+}
+
+function FutureScore(TableFuture) {
+    var TableFuture = document.getElementById("Future")
+}
+
 
 
 
