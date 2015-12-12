@@ -38,11 +38,11 @@ Class BD
 
         $req->execute();
 
-        return $req->fetchAll();
+        return $req->fetchAll(PDO::FETCH_COLUMN);
 
     }
 
-    public static function LoadFutureGame()//donne les games future
+    public static function LoadFutureGameHost()//donne les Host future
     {
         try {
             $pdo = new PDO('sqlite:../app/Models/bd.db');
@@ -54,7 +54,37 @@ Class BD
 
         $req->execute();
 
-        return $req->fetchAll();
+        return $req->fetchAll(PDO::FETCH_COLUMN);
+
+    }
+    public static function LoadFutureGameVisitor()//donne les Visiteurs future
+    {
+        try {
+            $pdo = new PDO('sqlite:../app/Models/bd.db');
+        } catch (PDOException $e) {
+            echo 'Connection failed: ' . $e->getMessage();
+        }
+        $Select = "SELECT * FROM Future";
+        $req = $pdo->prepare($Select);
+
+        $req->execute();
+
+        return $req->fetchAll(PDO::FETCH_COLUMN,1);
+
+    }
+    public static function LoadFutureGameLoc()//donne les Loc future
+    {
+        try {
+            $pdo = new PDO('sqlite:../app/Models/bd.db');
+        } catch (PDOException $e) {
+            echo 'Connection failed: ' . $e->getMessage();
+        }
+        $Select = "SELECT * FROM Future";
+        $req = $pdo->prepare($Select);
+
+        $req->execute();
+
+        return $req->fetchAll(PDO::FETCH_COLUMN,2);
 
     }
 

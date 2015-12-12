@@ -7,11 +7,17 @@
  */
 class Admin extends Controller
 {
-    public static function Account()
+    public static function Account()//renvoi au ajax les comptes
     {
         parent::model("Account");
+        $data = Account::Admin();
+        echo json_encode($data);
+    }
 
-        if($_POST['User'] == "Admin")
-            echo Account::Admin();
+    public static  function  AddAccount()//envoi a la bd les données a ajoutés
+    {
+        parent::model("Account");
+        $str = explode(",",$_POST["Add"]);
+        Account::AddAccount($str[0],$str[1],$str[2]);
     }
 }

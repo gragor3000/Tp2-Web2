@@ -53,7 +53,7 @@ if (!(isset($_SESSION['AdminUser']) && $_SESSION['AdminUser'] != ''))
 
 
 <div class="container">
-    <div class="jumbotron2">
+    <div class="jumbotron3">
         <h2>Liste des comptes</h2>
         <table class="Account">
             <tr>

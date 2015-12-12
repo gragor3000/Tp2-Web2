@@ -43,19 +43,40 @@ session_start();
                 </div>
                 <label>Se souvenir de moi</label> <input type="checkbox">
                 <button type="submit" class="btn btn-success">Connexion</button>
+
             </form>
         </div>
+    </div>
+</div>
 
-    </div>
-</div>
+
 <div class="container">
     <div class="jumbotron2">
-        <Table id="Past"></Table>
+        <button class="btn btn-lg btn-default" onclick="ShowPast()" >Résultat</button>
+        <Table id="TPast" class="table table-hover table-striped ">
+            <thead>
+            <tr>
+                <th><h1>Result</h1></th>
+            </tr>
+            </thead>
+            <tbody id="Past"></tbody>
+        </Table>
     </div>
 </div>
+
 <div class="container">
     <div class="jumbotron2">
-        <Table id="Future"></Table>
+        <button class="btn btn-lg btn-default" onclick="ShowFuture()">Parties Future</button>
+        <Table id="TFut" class="table table-hover table-striped">
+            <thead>
+            <tr>
+                <th>Host</th>
+                <th>Visitor</th>
+                <th>Location</th>
+            </tr>
+            </thead>
+            <tbody id="Future"></tbody>
+        </Table>
     </div>
 </div>
 

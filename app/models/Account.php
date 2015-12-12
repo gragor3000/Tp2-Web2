@@ -10,7 +10,6 @@ Class Account
 {
     public static function Admin()//load et envoi les comptes a ajax pour les ajouté a la liste
     {
-        $data = "";
         try {
             $pdo = new PDO('sqlite:../app/Models/bd.db');
         } catch (PDOException $e) {
@@ -19,29 +18,23 @@ Class Account
 
 
         try {
-            $req = $pdo->prepare("SELECT CompteEmail FROM Compte");
+            $req = $pdo->prepare("SELECT CompteEmail FROM Compte WHERE CompteAdmin = 0");
             $req->execute();
 
-            $value = $req->fetchAll();
+            $value = $req->fetchAll(PDO::FETCH_COLUMN);
 
-            foreach ($value as $datas) {//remplit ma liste de tous les comptes
-                //ShowAccount( $data['CompteEmail'], $ii);
-
-                $one = $datas['CompteEmail'];
-                $data = "$data" . "," . "$one";
-            }
             //echo $doc->saveHTML();
             $pdo = null;
         } catch (PDOException $ex) {
             echo "Connection failed: " . $ex->getMessage();
         }
-        return $data;
+        return $value;
 
     }
 
 
 
-    function AddAccount($email, $password, $Admin)//ajoute un compte
+    public static function AddAccount($email, $password, $Token)//ajoute un compte
     {
         try {
             $pdo = new PDO('sqlite:../app/Models/bd.db');
@@ -49,19 +42,14 @@ Class Account
             echo 'Connection failed: ' . $e->getMessage();
         }
 
-
-        $insert = "INSERT INTO Compte (CompteEmail, ComptePassword, CompteAdmin) VALUES (:CompteEmail, :ComptePassword,:Admin)";
+        $insert = "INSERT INTO Compte (CompteEmail, ComptePassword, CompteAdmin,CompteToken) VALUES (:CompteEmail, :ComptePassword,0,:CompteToken)";
         $requete = $pdo->prepare($insert);
         $requete->bindValue(':CompteEmail', $email);
         $requete->bindValue(':ComptePassword', md5($password));
-        $requete->bindValue(':Admin', $Admin);
-
+        $requete->bindValue(':CompteToken', $Token);
         // Execute la requ�te
         $requete->execute();
 
-
-        Admin();
-        echo "<script> alert('Le compte : (" . $email . ") a ete ajouter')</script>";
         $pdo = null;
     }
 

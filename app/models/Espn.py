@@ -96,14 +96,11 @@ def FutureSchedule():
         i = 0
         loc = ""
         for row in rows:
-
             cols = row.find_all("td")
             if(cols != []):
                 for col in cols:
                     if(col.contents[0].string != None):
                         loc = (col.contents[0].string)
-                    #if(col.contents[1].contents[0].string != None):
-                       # print(col.contents[1].contents[0].string)
                     aa = col.find_all("a",class_="team-name")
 
                     for a in aa:
