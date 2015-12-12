@@ -8,7 +8,8 @@ function Admin()//met les comptes dans la liste
     var inputPsw = document.getElementById("inputPassword")
     inputPsw.value = ""
     var inputToken = document.getElementById("inputToken")
-    inputToken.value = ""
+    inputToken.value = 20
+
     var xmlhttp = new XMLHttpRequest();
 
     xmlhttp.open("POST", "/Admin/Account", true);
@@ -77,13 +78,14 @@ function ModifyAccount() {//modifie un compte de la bd
     var lstEmail = document.getElementById("ListeCompte")
     var oldEmail = lstEmail.value
 
-    xmlhttp.open("POST", "../../Models/Account.php", true);
+    xmlhttp.open("POST", "/Admin/ModifyAccount", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.send(oldEmail + "," + Email + "," + Password + "," + Token);
+    xmlhttp.send("Modify="+oldEmail + "," + Email + "," + Password + "," + Token);
 
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-
+            alert("Le compte " + oldEmail + " à été modifier")
+            Admin();
 
         }
     }
@@ -93,14 +95,14 @@ function DeleteAccount() {//supprime un compte de la bd
     var xmlhttp = new XMLHttpRequest();
     var lstEmail = document.getElementById("ListeCompte")
     var oldEmail = lstEmail.value
-    xmlhttp.open("POST", "../../Models/Account.php", true);
+    xmlhttp.open("POST", "/Admin/DeleteAccount", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.send(oldEmail.toString());
+    xmlhttp.send("Delete=" +oldEmail);
 
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-
-
+            alert("Le compte " + oldEmail + " à été supprimer")
+            Admin();
         }
     }
 }

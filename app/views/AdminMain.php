@@ -68,7 +68,7 @@ if (!(isset($_SESSION['AdminUser']) && $_SESSION['AdminUser'] != ''))
                         <input name="password" id="inputPassword" type="password" placeholder="Mot de Passe"
                                class="form-control">
                         <label for="inputToken" class="sr-only">Token</label>
-                        <input name="Token" id="inputToken" type="number" placeholder="Token"
+                        <input name="Token" id="inputToken" type="number" min="20"  placeholder="Token"
                                class="form-control">
                     </div>
                 </td>

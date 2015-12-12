@@ -53,29 +53,25 @@ Class Account
         $pdo = null;
     }
 
-    function ModifyAccount($oldEmail, $Email, $Password, $Admin)//modifie le compte s�lectionn�
+    public static function ModifyAccount($oldEmail, $Email, $Password, $Token)//modifie le compte s�lectionn�
     {
         try {
             $pdo = new PDO('sqlite:../app/Models/bd.db');
         } catch (PDOException $e) {
             echo 'Connection failed: ' . $e->getMessage();
         }
-        $Update = "Update Compte SET CompteEmail = :Email, ComptePassword = :Password, CompteAdmin = :Admin WHERE CompteEmail = :oldEmail";
+
+        $Update = "Update Compte SET CompteEmail = :Email, ComptePassword = :Password, CompteAdmin = 0, CompteToken = :CompteToken WHERE CompteEmail = :oldEmail";
         $req = $pdo->prepare($Update);
         $req->bindValue(':Email', $Email);
         $req->bindValue(':Password', md5($Password));
-        if ($Admin == "on")
-            $req->bindValue(':Admin', 1);
-        else
-            $req->bindValue(':Admin', 0);
+        $req->bindValue(':CompteToken',$Token);
         $req->bindValue(':oldEmail', $oldEmail);
         $req->execute();
-        Admin();
-        echo "<script> alert('Le compte :" . $oldEmail . " a ete modifier')</script>";
         $pdo = null;
     }
 
-    function DeleteAccount($Email)//delete le compte s�lectionn�
+    public static function DeleteAccount($Email)//delete le compte s�lectionn�
     {
         try {
             $pdo = new PDO('sqlite:../app/Models/bd.db');
@@ -86,8 +82,6 @@ Class Account
         $req = $pdo->prepare($Delete);
         $req->bindValue(':Email', $Email);
         $req->execute();
-        Admin();
-        echo "<script> alert('Le compte : (" . $Email . ") a ete supprimer')</script>";
         $pdo = null;
     }
 }
