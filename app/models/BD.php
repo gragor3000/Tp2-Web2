@@ -126,24 +126,36 @@ Class BD
         return $req->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public static function LoadMise()
+
+
+    public static function LoadAPIGames()
     {
         try {
             $pdo = new PDO('sqlite:../app/Models/bd.db');
         } catch (PDOException $e) {
             echo 'Connection failed: ' . $e->getMessage();
         }
-        $Select = "SELECT * FROM Future";
+        $Select = "SELECT * FROM Mise";
         $req = $pdo->prepare($Select);
 
         $req->execute();
 
-        return $req->fetchAll();
+        return $req->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public static function LoadAPITeams($id)
+    public static function LoadAPIGame($id)
     {
+        try {
+            $pdo = new PDO('sqlite:../app/Models/bd.db');
+        } catch (PDOException $e) {
+            echo 'Connection failed: ' . $e->getMessage();
+        }
+        $Select = "SELECT * FROM Mise WHERE ID = :ID";
+        $req = $pdo->prepare($Select);
+        $req->bindValue(':ID', $id);
+        $req->execute();
 
+        return $req->fetchAll(PDO::FETCH_ASSOC);
     }
 
 }

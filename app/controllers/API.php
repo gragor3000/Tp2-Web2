@@ -12,7 +12,7 @@ Class API extends Controller
         parent::view('APIVIEW');
     }
 
-    public static function LoadAPITeam()//envoi tous les standings au ajax
+    public static function Teams()//envoi tous les standings au ajax
     {
         parent::model('BD');
         $table = BD::LoadStandings();
@@ -26,15 +26,18 @@ Class API extends Controller
         echo json_encode($table);
     }
 
-    public function LoadAPIMise()//envoi toutes les mises au ajax
-    {
-        parent::model('BD');
-        echo json_encode(BD::LoadMise());
-    }
-
-    public function Teams($id)
+    public function Games($id=-1)//donne soit toute les parties ou
     {
         parent::model('BD');
 
+        if($id <= 0)
+        {
+            $table =  BD::LoadAPIGames();
+            echo json_encode($table);
+        }
+        else {
+            $table = BD::LoadAPIGame($id);
+            echo json_encode($table);
+        }
     }
 }

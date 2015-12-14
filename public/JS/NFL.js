@@ -269,7 +269,7 @@ function LoadAPI()//load les info de la page d'API
 {
     var xmlhttp = new XMLHttpRequest();
 
-    xmlhttp.open("POST", "/API/LoadAPITeam", true);
+    xmlhttp.open("POST", "/API/Teams", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send("");
 
