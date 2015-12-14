@@ -5,3 +5,7 @@
  * Date: 2015-12-06
  * Time: 13:27
  */
+Class Miseur
+{
+
+}

@@ -36,14 +36,14 @@ if(!(isset($_SESSION['MiseurUser']) && $_SESSION['MiseurUser'] != ''))
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
-                <li><a type="submit" href="../HTML/CrtSondage.php">Création de sondage</a></li>
+                <li><a type="submit" href="../HTML/CrtSondage.php"></a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">Compte <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a type="submit" href="../PHP/seeSondage.php">Mes Sondages</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="../PHP/EndSession.php">Déconnexion</a></li>
+                        <li><a href="">Déconnexion</a></li>
                     </ul>
                 </li>
             </ul>
@@ -52,32 +52,7 @@ if(!(isset($_SESSION['MiseurUser']) && $_SESSION['MiseurUser'] != ''))
 </div>
 
 
-<div id="container" class="container">
-    <div class="jumbotron2">
-        <form method="post" action="../PHP/GoSondage.php">
-            <h2>Accéder à un Sondage</h2>
-            <table class="Account">
-                <tr>
-                    <td>
-                        <label for="mdp" class="sr-only">Mot de passe</label>
-                        <input name="mdp" id="mdp" type="text" placeholder="Mot de passe" class="form-control">
 
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <br>
-                        <button style="margin-left: 45%;" type="submit" class="btn btn-lg btn-success" name="Accede_btn"
-                                value="Accede">Accéder
-                        </button>
-                    </td>
-
-                </tr>
-            </table>
-
-        </form>
-    </div>
-</div>
 
 
 <div class="footer">

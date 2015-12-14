@@ -5,7 +5,7 @@ import datetime
 
 def standing():
 
-    conn = sqlite3.connect('BD.db')
+    conn = sqlite3.connect('../app/Models/bd.db')
     conn.execute("drop table if exists Standings")
     conn.execute("CREATE TABLE Standings(id int,Name text,pct real,pf int,pa int)")
     conn.commit()
@@ -43,12 +43,12 @@ def standing():
 
 def PastSchedule():
 
-    conn = sqlite3.connect('BD.db')
+    conn = sqlite3.connect('../app/Models/bd.db')
     conn.execute("drop table if exists PastScores")
     conn.execute("CREATE TABLE PastScores(Score text)")
     conn.commit()
     conn.close()
-    Week = datetime.date.today().isocalendar()[1] - datetime.date(2015,9,3).isocalendar()[1]
+    Week = datetime.date.today().isocalendar()[1] - datetime.date(2015,9,3).isocalendar()[1]-1
     for ii in range (1, Week):
         response = urllib.request.urlopen('http://espn.go.com/nfl/schedule/_/week/' + str(ii))
         html = response.read()
@@ -75,9 +75,9 @@ def PastSchedule():
 
 
 def FutureSchedule():
-    conn = sqlite3.connect('BD.db')
+    conn = sqlite3.connect('../app/Models/bd.db')
     conn.execute("drop table if exists Future")
-    conn.execute("CREATE TABLE Future(Host text,Visitor text,Location Text)")
+    conn.execute("CREATE TABLE Future(id INTEGER PRIMARY KEY AUTOINCREMENT, Host text,Visitor text,Location Text)")
     conn.commit()
     conn.close()
     Week = datetime.date.today().isocalendar()[1] - datetime.date(2015,9,3).isocalendar()[1]
@@ -120,21 +120,21 @@ def FutureSchedule():
 
 
 def BDStanding(i,team,pct,pf,pa):
-    conn = sqlite3.connect('BD.db')
+    conn = sqlite3.connect('../app/Models/bd.db')
     conn.execute("INSERT INTO Standings VALUES (?,?,?,?,?)",(i,team,pct,pf,pa))
     conn.commit()
     conn.close()
 
 def BDPast(score):
-    conn = sqlite3.connect('BD.db')
+    conn = sqlite3.connect('../app/Models/bd.db')
     conn.execute("INSERT INTO PastScores VALUES (?)",(score,))
     conn.commit()
     conn.close()
 
 def BDFuture(team1,team2,loc):
     print(team1,team2,loc)
-    conn = sqlite3.connect('BD.db')
-    conn.execute("INSERT INTO Future VALUES (?,?,?)",(team1,team2,loc))
+    conn = sqlite3.connect('../app/Models/bd.db')
+    conn.execute("INSERT INTO Future VALUES (?,?,?,?)",(None,team1,team2,loc))
     conn.commit()
     conn.close()
 

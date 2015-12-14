@@ -1,4 +1,10 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: Mic
+ * Date: 2015-12-14
+ * Time: 15:51
+ */
 session_start();
 
 ?>
@@ -16,7 +22,7 @@ session_start();
 
 </head>
 
-<body onload="LoadGame()">
+<body onload="LoadAPI()">
 
 <div class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -29,11 +35,11 @@ session_start();
                 <span class="icon-bar"></span>
             </button>
             <ul class="nav navbar-nav">
-                <li class="active">
-                    <a class="navbar-brand" href="#">Triangle Football</a>
-                </li>
                 <li>
-                    <a class="navbar-brand" href="/API/index">API</a>
+                    <a class="navbar-brand" href="/Client/index">Triangle Football</a>
+                </li>
+                <li class="active">
+                    <a class="navbar-brand" href="#">API</a>
                 </li>
             </ul>
         </div>
@@ -50,8 +56,6 @@ session_start();
                 </div>
                 <label>Se souvenir de moi</label> <input type="checkbox">
                 <button type="submit" class="btn btn-success">Connexion</button>
-                <button class="btn btn-primary" onclick="Update()">MàJ Stats</button>
-
             </form>
         </div>
     </div>
@@ -60,30 +64,18 @@ session_start();
 
 <div class="container">
     <div class="jumbotron2">
-        <button class="btn btn-lg btn-default" onclick="ShowPast()">Résultat</button>
-        <Table id="TPast" class="table table-hover table-striped ">
-            <thead>
-            <tr>
-                <th><h1>Result</h1></th>
-            </tr>
-            </thead>
-            <tbody id="Past"></tbody>
+        <button class="btn btn-lg btn-default" onclick="ShowTeam()" >Équipe</button>
+        <Table id="TTeam" class="table table-hover table-striped ">
+
         </Table>
     </div>
 </div>
 
 <div class="container">
     <div class="jumbotron2">
-        <button class="btn btn-lg btn-default" onclick="ShowFuture()">Parties Future</button>
+        <button class="btn btn-lg btn-default" onclick="ShowMatch()">Matches</button>
         <Table id="TFut" class="table table-hover table-striped">
-            <thead>
-            <tr>
-                <th>Host</th>
-                <th>Visitor</th>
-                <th>Location</th>
-            </tr>
-            </thead>
-            <tbody id="Future"></tbody>
+
         </Table>
     </div>
 </div>

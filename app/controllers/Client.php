@@ -14,7 +14,7 @@ class Client extends Controller
         parent::view('Accueil');
     }
 
-    public function login()
+    public static function login()//connect l'usager en fonction du son compte
     {
         parent::model('BD');
 
@@ -57,5 +57,12 @@ class Client extends Controller
         $FutureGame = BD::LoadFutureGameLoc();
         echo json_encode($FutureGame);
     }
+
+    public static function Update()//update la bd avec python
+    {
+        parent::model('BD');
+        BD::UpdateBD();
+    }
+
 
 }

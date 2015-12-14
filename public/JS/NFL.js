@@ -122,9 +122,9 @@ function LoadGame()//load les game future et passée
             PastScore(Table2);
         }
     }
-    LoadFutureGameHost();
-    LoadFutureGameLoc();
-    LoadFutureGameVisitor();
+
+
+
 
 }
 
@@ -142,6 +142,7 @@ function LoadFutureGameHost() {//va chercher les host
             FutureScore(Table2);
         }
     }
+
 }
 
 function LoadFutureGameVisitor() {//va chercher les visitor
@@ -158,6 +159,7 @@ function LoadFutureGameVisitor() {//va chercher les visitor
             FutureScore2(Table2);
         }
     }
+
 }
 
 
@@ -194,6 +196,7 @@ function PastScore(TablePast) {//affiche les parties passées
         tr.setAttribute("id", "Ptr." + i.toString());
         Table.appendChild(tr);
     }
+    LoadFutureGameHost();
 }
 
 function FutureScore(TableFuture) {//affiche les parties futures
@@ -211,6 +214,8 @@ function FutureScore(TableFuture) {//affiche les parties futures
         tr.setAttribute("id", "Ftr." + i.toString());
         Table.appendChild(tr);
     }
+    LoadFutureGameVisitor();
+    LoadFutureGameLoc();
 }
 
 function FutureScore2(TableFuture) {//affiche les parties futures avec déjà les lignes de créer
@@ -243,6 +248,94 @@ function ShowPast()//montre ou cache les parties passé
     else
         Table.style.display = "none";
 }
+
+function Update()//fait la mise a jour de la bd
+{
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.open("POST", "/Client/Update", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send("");
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            LoadGame();
+            alert("Mise à jour effectué!");
+        }
+    }
+}
+
+function LoadAPI()//load les info de la page d'API
+{
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.open("POST", "/API/LoadAPITeam", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send("");
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            var Table = xmlhttp.responseText;
+            LoadAPITeam(Table)
+        }
+    }
+}
+
+function LoadAPITeam(Table)//met le résulat dans le html
+{
+    var Table2 = document.getElementById("TTeam");
+
+    var tr = document.createElement("tr");
+    tr.appendChild(document.createTextNode(Table));
+    Table2.appendChild(tr);
+    LoadAPIFuture();
+}
+
+function ShowTeam()//montre ou cache les parties futures
+{
+    var Table = document.getElementById("TTeam");
+    if (Table.style.display == "none")
+        Table.style.display = "inline";
+    else
+        Table.style.display = "none";
+}
+
+function ShowMatch()
+{
+    var Table = document.getElementById("TFut");
+    if (Table.style.display == "none")
+        Table.style.display = "inline";
+    else
+        Table.style.display = "none";
+}
+
+
+function LoadAPIFuture()//load les info de la page d'API
+{
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.open("POST", "/API/LoadAPIFuture", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send("");
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            var Table = xmlhttp.responseText;
+            LoadAPIFutureTable(Table);
+        }
+    }
+}
+
+
+function LoadAPIFutureTable(Table) {
+    var Table2 = document.getElementById("TFut");
+
+    var tr = document.createElement("tr");
+    tr.appendChild(document.createTextNode(Table));
+    Table2.appendChild(tr);
+}
+
+
 
 
 
