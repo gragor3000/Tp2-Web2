@@ -1,13 +1,3 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Mic
- * Date: 2015-12-14
- * Time: 15:51
- */
-session_start();
-
-?>
 <html>
 
 <head>

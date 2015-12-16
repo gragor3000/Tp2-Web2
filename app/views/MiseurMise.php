@@ -22,7 +22,7 @@ if (!(isset($_SESSION['MiseurUser']) && $_SESSION['MiseurUser'] != ''))
 
 <body role="document" onload="ShowInfo()">
 
-<div class="navbar navbar-default navbar-fixed-top">
+<div class="navbar navbar-default navbar-fixed-topt">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -36,8 +36,8 @@ if (!(isset($_SESSION['MiseurUser']) && $_SESSION['MiseurUser'] != ''))
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="/Miseur/Mise"> Mises</a></li>
+                <li><a  href="/Miseur/Mise">Home</a></li>
+                <li class="active"><a href="#"> Mises</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">Compte <span class="caret"></span></a>
@@ -46,25 +46,10 @@ if (!(isset($_SESSION['MiseurUser']) && $_SESSION['MiseurUser'] != ''))
                     </ul>
                 </li>
             </ul>
-            <div class="Bet">
-                Équipe:
-                <select id="Team">
-                    <option>Host</option>
-                    <option>Visitor</option>
-                </select>
-                Partie:
-                <input id="GameID" type="number" min="1" value="1">
-                Montant:
-                <input id="Montant" type="number" min="10" value="10">
-                <button class="btn-primary">Miser !</button>
-                <input id="Gain" type="number" min="10" value="10">
-                <button class="btn-primary">Miser !</button>
-            </div>
             <div class="Token">
-                Token courant :
+                Token :
                 <input readonly type="text" id="CurToken">
             </div>
-
         </div>
     </div>
 </div>
@@ -73,22 +58,6 @@ if (!(isset($_SESSION['MiseurUser']) && $_SESSION['MiseurUser'] != ''))
     <div class="jumbotron2">
         <input id="Token" class="form-control" type="number" min="1" value="1">
         <a onclick="AddToken()" href="#"><img src="/CSS/Image/Paynow.png"></a>
-    </div>
-</div>
-
-<div class="container">
-    <div class="jumbotron3">
-        <button class="btn btn-lg btn-default" onclick="ShowFuture()">Parties Future</button>
-        <Table id="TFut" class="table table-hover table-striped">
-            <thead>
-            <tr>
-                <th>Host</th>
-                <th>Visitor</th>
-                <th>Location</th>
-            </tr>
-            </thead>
-            <tbody id="Future"></tbody>
-        </Table>
     </div>
 </div>
 

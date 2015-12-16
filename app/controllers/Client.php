@@ -10,9 +10,9 @@ session_start();
 class Client extends Controller
 {
     public static function index()
-    {
-        parent::view('Accueil');
-    }
+{
+    parent::view('Accueil');
+}
 
     public static function login()//connect l'usager en fonction du son compte
     {

@@ -1,6 +1,8 @@
 /**
  * Created by 1253250 on 22/10/2015.
  */
+var id = 0;
+
 function Admin()//met les comptes dans la liste
 {
     var inputEmail = document.getElementById("inputEmail")
@@ -199,17 +201,23 @@ function PastScore(TablePast) {//affiche les parties passées
     LoadFutureGameHost();
 }
 
-function FutureScore(TableFuture) {//affiche les parties futures
+function FutureScore(TableFuture) {//affiche les parties futures avec leur id
 
     var Table = document.getElementById("Future")
-
     for (var i = 1; i < TableFuture.length - 1; i++) {
 
         var data = TableFuture[i].replace(",", "");
 
         var tr = document.createElement("tr");
         var td = document.createElement("td");
-        td.appendChild(document.createTextNode(data));
+        if(data != "") {
+            if(Table.children.length == 0)
+                id = 1;
+            td.appendChild(document.createTextNode((id).toString() + ". " + data));
+            id++;
+        }
+        else
+            td.appendChild(document.createTextNode(data));
         tr.appendChild(td);
         tr.setAttribute("id", "Ftr." + i.toString());
         Table.appendChild(tr);
@@ -327,13 +335,70 @@ function LoadAPIFuture()//load les info de la page d'API
 }
 
 
-function LoadAPIFutureTable(Table) {
+function LoadAPIFutureTable(Table) {//met les parties future dans la table
     var Table2 = document.getElementById("TFut");
 
     var tr = document.createElement("tr");
     tr.appendChild(document.createTextNode(Table));
     Table2.appendChild(tr);
 }
+
+function AddToken()//ajoute des tokens a l'utilisateur connecter
+{
+    var xmlhttp = new XMLHttpRequest();
+    var input = document.getElementById("Token");
+    var Token = input.value;
+
+    xmlhttp.open("POST", "/Miseur/AddToken", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send("Token="+Token);
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            alert(Token + " token a été ajouté")
+        }
+    }
+
+    ShowToken();
+}
+
+function ShowInfo()//montre les token du miseur en cours
+{
+    LoadFutureGameHost();
+    ShowToken();
+}
+
+function ShowToken()//montre les token de l'utilisateur
+{
+    var xmlhttp = new XMLHttpRequest();
+    var Token = document.getElementById("CurToken");
+
+    xmlhttp.open("POST", "/Miseur/ShowToken", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send();
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            var ValToken = xmlhttp.responseText;
+            Token.value = ValToken;
+            MaxBet(ValToken);
+        }
+    }
+
+}
+
+function MaxBet(max)//set le max du nombre de token que l'utilisateur peut mettre sur une mise
+{
+    if(max != null) {
+        var bet = document.getElementById("Montant")
+        bet.setAttribute("max", parseInt(max));
+    }
+}
+
+
+
+
+
 
 
 

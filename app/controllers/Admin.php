@@ -33,4 +33,11 @@ class Admin extends Controller
         $str = explode(",",$_POST["Modify"]);
         Account::ModifyAccount($str[0],$str[1],$str[2],$str[3]);
     }
+
+    public function index()
+    {
+        session_unset();
+        session_destroy();
+        parent::view('Accueil');
+    }
 }

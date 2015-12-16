@@ -2,12 +2,10 @@
 session_start();
 
 if (!(isset($_SESSION['AdminUser']) && $_SESSION['AdminUser'] != ''))
-    header("location:../app/Views/Accueil.php");
+    header("location: /Admin/index");
 ?>
 
 <head>
-
-
     <script src="/JS/NFL.js"></script>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -40,9 +38,7 @@ if (!(isset($_SESSION['AdminUser']) && $_SESSION['AdminUser'] != ''))
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">Compte <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Paramètre</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="../PHP/EndSession.php">Déconnexion</a></li>
+                        <li><a href="/Client/index">Déconnexion</a></li>
                     </ul>
                 </li>
             </ul>

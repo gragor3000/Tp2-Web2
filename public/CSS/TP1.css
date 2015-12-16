@@ -4,7 +4,21 @@ body{
     background-position:  center center;
     ;
 }
+img{
+    width:17%;
+}
 
+.Token
+{
+    margin-top: 1.5%;
+    margin-bottom: -30%;
+    margin-left: 35%;
+}
+
+.Bet{
+    margin-top: 1%;
+    margin-left: 30%;
+}
 .Account{
     width:100%
 }

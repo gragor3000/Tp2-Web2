@@ -24,7 +24,14 @@ def standing():
     for link2 in links2:
         team = link2.contents[0]
         if (team.string != None):
-            print(team.string)
+            Steam = team.split(" ")
+            if(len(Steam)>2):
+                team = Steam[0] + " " + Steam[1]
+            else:
+                team = Steam[0]
+
+
+            print(team)
 
         links = soup.findAll('tr')[i].find_all('td')
         for link in links:
@@ -37,7 +44,7 @@ def standing():
         i = i + 1
 
 
-        BDStanding(i,team.string,links[4].contents[0],links[9].contents[0],links[10].contents[0])
+        BDStanding(i,team,links[4].contents[0],links[9].contents[0],links[10].contents[0])
 
 
 

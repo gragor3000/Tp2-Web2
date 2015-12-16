@@ -6,6 +6,7 @@
  * Time: 16:30
  */
 include_once("BD.php");
+session_start();
 Class Account
 {
     public static function Admin()//load et envoi les comptes a ajax pour les ajouté a la liste
@@ -83,6 +84,38 @@ Class Account
         $req->bindValue(':Email', $Email);
         $req->execute();
         $pdo = null;
+    }
+
+    public static function AddToken($Token)//ajoute les token dans la bd
+    {
+        $user = $_SESSION["MiseurUser"];
+        try {
+            $pdo = new PDO('sqlite:../app/Models/bd.db');
+        } catch (PDOException $e) {
+            echo 'Connection failed: ' . $e->getMessage();
+        }
+        $Update = "Update Compte Set CompteToken = CompteToken + :Token WHERE CompteEmail = :Users";
+        $req = $pdo->prepare($Update);
+        $req->bindValue(':Token',$Token);
+        $req->bindValue(':Users',$user);
+        $req->execute();
+        $pdo = null;
+    }
+
+    public static function ShowToken()
+    {
+        $user = $_SESSION["MiseurUser"];
+        try {
+            $pdo = new PDO('sqlite:../app/Models/bd.db');
+        } catch (PDOException $e) {
+            echo 'Connection failed: ' . $e->getMessage();
+        }
+        $Update = "Select CompteToken FROM Compte WHERE CompteEmail = :Users";
+        $req = $pdo->prepare($Update);
+        $req->bindValue(':Users',$user);
+        $req->execute();
+        $pdo = null;
+        return $req->fetchAll(PDO::FETCH_NUM);
     }
 }
 

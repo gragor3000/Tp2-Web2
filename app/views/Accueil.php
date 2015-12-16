@@ -1,7 +1,4 @@
-<?php
-session_start();
 
-?>
 <html>
 
 <head>
@@ -48,7 +45,6 @@ session_start();
                     <input name="password" id="inputPassword" type="password" placeholder="Mot de Passe"
                            class="form-control">
                 </div>
-                <label>Se souvenir de moi</label> <input type="checkbox">
                 <button type="submit" class="btn btn-success">Connexion</button>
                 <button class="btn btn-primary" onclick="Update()">MàJ Stats</button>
 
