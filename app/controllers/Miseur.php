@@ -32,4 +32,20 @@ Class Miseur extends Controller
         session_destroy();
         parent::view('Accueil');
     }
+
+    public static function ShowGain()
+    {
+        parent::model('BD');
+        $table =  explode(",",$_POST["Gain"]);
+        $gain = BD::ShowGain($table[0],$table[1],$table[2]);
+        echo $gain;
+    }
+
+    public static function Bet()
+    {
+        parent::model('BD');
+        $table =  explode(",",$_POST["Bet"]);
+        BD::Bet($table[0],$table[1],$table[2],$table[3]);
+
+    }
 }

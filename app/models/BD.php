@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 
@@ -54,7 +53,7 @@ Class BD
 
         $req->execute();
 
-        return $req->fetchAll(PDO::FETCH_COLUMN,1);
+        return $req->fetchAll(PDO::FETCH_COLUMN, 1);
 
     }
 
@@ -127,8 +126,7 @@ Class BD
     }
 
 
-
-    public static function LoadAPIGames()
+    public static function LoadAPIGames()//donnes toutes les mises
     {
         try {
             $pdo = new PDO('sqlite:../app/Models/bd.db');
@@ -143,14 +141,14 @@ Class BD
         return $req->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public static function LoadAPIGame($id)
+    public static function LoadAPIGame($id)//donne les mise sur la partie donnée
     {
         try {
             $pdo = new PDO('sqlite:../app/Models/bd.db');
         } catch (PDOException $e) {
             echo 'Connection failed: ' . $e->getMessage();
         }
-        $Select = "SELECT * FROM Mise WHERE ID = :ID";
+        $Select = "SELECT * FROM Mise WHERE Game = :ID";
         $req = $pdo->prepare($Select);
         $req->bindValue(':ID', $id);
         $req->execute();
@@ -158,5 +156,80 @@ Class BD
         return $req->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public static function ShowGain($id, $team, $token)//donne le pourcentage de gain
+    {
+        try {
+            $pdo = new PDO('sqlite:../app/Models/bd.db');
+        } catch (PDOException $e) {
+            echo 'Connection failed: ' . $e->getMessage();
+        }
+        $Select = "SELECT * FROM Future WHERE id = :ID";
+        $req = $pdo->prepare($Select);
+        $req->bindValue(':ID', $id);
+        $req->execute();
+
+        $result = $req->fetchAll();
+        $Host = $result[0][1];
+        $Visitor = $result[0][2];
+
+        $Select = "SELECT pct FROM Standings WHERE Name = :Name";
+        $req = $pdo->prepare($Select);
+        $req->bindValue(':Name', $Host);
+        $req->execute();
+        $result = $req->fetchAll();
+
+        $pctHost = $result[0][0];
+
+        $Select = "SELECT pct FROM Standings WHERE Name = :Name";
+        $req = $pdo->prepare($Select);
+        $req->bindValue(':Name', $Visitor);
+        $req->execute();
+        $result = $req->fetchAll();
+
+        $pctVisitor = $result[0][0];
+
+        $diff = abs($pctHost-$pctVisitor);
+
+        if($pctHost > $pctVisitor)
+        {
+            $HostGain = (2- (0.5 - ($diff/2)));
+            $VisitorGain = (2- (0.5 + ($diff/2)));
+        }
+        else
+        {
+            $HostGain = (2- (0.5 + ($diff/2)));
+            $VisitorGain = (2- (0.5 - ($diff/2)));
+        }
+        if($team == "Host")
+            return $HostGain *$token;
+        else
+            return $VisitorGain *$token;
+    }
+
+    public static function Bet($id, $team, $token,$gain)//ajoute la mise dans la bd
+    {
+        try {
+            $pdo = new PDO('sqlite:../app/Models/bd.db');
+        } catch (PDOException $e) {
+            echo 'Connection failed: ' . $e->getMessage();
+        }
+        $Select = "INSERT INTO Mise(Game,Team,MiseurMise,Gain,Miseur,Status) VALUES(:Game,:Team,:MiseurMise,:Gain,:Miseur,:Status)";
+        $req = $pdo->prepare($Select);
+        $req->bindValue(':Game', $id);
+        $req->bindValue(':Team', $team);
+        $req->bindValue(':MiseurMise', $token);
+        $req->bindValue(':Gain', $gain);
+        $req->bindValue(':Miseur', $_SESSION["MiseurUser"]);
+        $req->bindValue(':Status', 0);
+        $req->execute();
+
+        $Update = "UPDATE Compte SET CompteToken = CompteToken - :Token";
+        $req = $pdo->prepare($Update);
+        $req->bindValue(':Token', $token);
+        $req->execute();
+        $pdo = null;
+
+    }
 }
+
 ?>

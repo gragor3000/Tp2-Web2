@@ -48,17 +48,17 @@ if (!(isset($_SESSION['MiseurUser']) && $_SESSION['MiseurUser'] != ''))
             </ul>
             <div class="Bet">
                 Équipe:
-                <select id="Team">
+                <select onchange="ShowGain()" id="Team">
                     <option>Host</option>
                     <option>Visitor</option>
                 </select>
                 Partie:
-                <input id="GameID" type="number" min="1" value="1">
+                <input onchange="ShowGain()" id="GameID" type="number" min="1" value="1">
                 Montant:
-                <input id="Montant" type="number" min="10" value="10">
-                <button class="btn-primary">Miser !</button>
-                <input id="Gain" type="number" min="10" value="10">
-                <button class="btn-primary">Miser !</button>
+                <input onchange="ShowGain()" id="Montant" type="number" min="10" value="10">
+                Gain:
+                <input readonly id="Gain" type="number" >
+                <button onclick="Bet()" class="btn-primary">Miser !</button>
             </div>
             <div class="Token">
                 Token courant :

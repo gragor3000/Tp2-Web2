@@ -366,6 +366,7 @@ function ShowInfo()//montre les token du miseur en cours
 {
     LoadFutureGameHost();
     ShowToken();
+    ShowGain();
 }
 
 function ShowToken()//montre les token de l'utilisateur
@@ -393,6 +394,46 @@ function MaxBet(max)//set le max du nombre de token que l'utilisateur peut mettr
         var bet = document.getElementById("Montant")
         bet.setAttribute("max", parseInt(max));
     }
+}
+
+function ShowGain()//met a jour le gain possible de l'équipe choisi
+{
+    var gain = document.getElementById("Gain");
+    var id = document.getElementById("GameID");
+    var Montant = document.getElementById("Montant");
+    var Team = document.getElementById("Team");
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.open("POST", "/Miseur/ShowGain", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send("Gain="+id.value + "," + Team.value + "," + Montant.value);
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            var ValGain = xmlhttp.responseText;
+            gain.value = Math.round(parseInt(ValGain));
+        }
+    }
+
+}
+
+function Bet()//fait la mise de l'utilisateur
+{
+    var gain = document.getElementById("Gain");
+    var id = document.getElementById("GameID");
+    var Montant = document.getElementById("Montant");
+    var Team = document.getElementById("Team");
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("POST", "/Miseur/Bet", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send("Bet="+id.value + "," + Team.value + "," + Montant.value + "," + gain.value);
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            alert("mise placée !")
+        }
+    }
+    ShowToken();
 }
 
 

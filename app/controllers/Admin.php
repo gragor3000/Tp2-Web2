@@ -5,6 +5,7 @@
  * Date: 2015-12-06
  * Time: 13:26
  */
+session_start();
 class Admin extends Controller
 {
     public static function Account()//renvoi au ajax les comptes

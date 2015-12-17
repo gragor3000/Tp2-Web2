@@ -7,7 +7,7 @@
  */
 Class API extends Controller
 {
-    public function Index()
+    public function index()
     {
         parent::view('APIVIEW');
     }
