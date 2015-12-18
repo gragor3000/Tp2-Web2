@@ -3020,6 +3020,9 @@ table th[class*="col-"] {
 .table-hover > tbody > tr.active:hover > th {
     background-color: #e8e8e8;
 }
+td{
+    text-align: center;
+}
 
 .table > thead > tr > td.success,
 .table > tbody > tr > td.success,

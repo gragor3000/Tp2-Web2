@@ -3,11 +3,11 @@
 class Controller{
 	public function model($model)
 	{
-		require_once '../app/models/' . $model . '.php';
+		require_once '../app/Models/' . $model . '.php';
 	}
 
 	public function view($view, $data = [])
 	{
-		require_once '../app/views/' . $view . '.php';
+		require_once '../app/Views/' . $view . '.php';
 	}	
 }

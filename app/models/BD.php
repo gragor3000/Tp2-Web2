@@ -220,7 +220,7 @@ Class BD
         $req->bindValue(':MiseurMise', $token);
         $req->bindValue(':Gain', $gain);
         $req->bindValue(':Miseur', $_SESSION["MiseurUser"]);
-        $req->bindValue(':Status', 0);
+        $req->bindValue(':Status', -1);
         $req->execute();
 
         $Update = "UPDATE Compte SET CompteToken = CompteToken - :Token";
@@ -230,6 +230,63 @@ Class BD
         $pdo = null;
 
     }
-}
 
+    public static function DeleteMise($id)//delete la mise donnée
+    {
+        try {
+            $pdo = new PDO('sqlite:../app/Models/bd.db');
+        } catch (PDOException $e) {
+            echo 'Connection failed: ' . $e->getMessage();
+        }
+        $select = "SELECT MiseurMise FROM Mise WHERE ID = :ID";
+        $req = $pdo->prepare($select);
+        $req->bindValue(':ID', $id);
+        $req->execute();
+        $Mise = $req->fetchAll(PDO::FETCH_NUM);
+
+        $Delete = "DELETE FROM Mise WHERE ID = :ID";
+        $req = $pdo->prepare($Delete);
+        $req->bindValue(':ID', $id);
+        $req->execute();
+
+        $Update = "UPDATE Compte SET CompteToken = CompteToken + :Token WHERE CompteEmail = :Email";
+        $req = $pdo->prepare($Update);
+        $req->bindValue(':Token', $Mise[0][0]);
+        $req->bindValue(':Email', $_SESSION["MiseurUser"]);
+        $req->execute();
+        $pdo = null;
+    }
+
+    public static function UpdateMise($id,$Team,$Token)//met a jour la mise donnée
+    {
+        try {
+            $pdo = new PDO('sqlite:../app/Models/bd.db');
+        } catch (PDOException $e) {
+            echo 'Connection failed: ' . $e->getMessage();
+        }
+        $select = "SELECT MiseurMise, Game FROM Mise WHERE ID = :ID";
+        $req = $pdo->prepare($select);
+        $req->bindValue(':ID', $id);
+        $req->execute();
+        $Mise = $req->fetchAll(PDO::FETCH_NUM);
+
+        $Gain = self::ShowGain($Mise[0][1],$Team,$Token);
+
+        $Update = "UPDATE Mise SET Team = :Team, MiseurMise = :Mise, Gain = :Gain  WHERE ID = :ID";
+        $req = $pdo->prepare($Update);
+        $req->bindValue(':Mise', $Token);
+        $req->bindValue(':Team', $Team);
+        $req->bindValue(':ID', $id);
+        $req->bindValue(':Gain', round($Gain));
+        $req->execute();
+
+        $Update = "UPDATE Compte SET CompteToken = CompteToken + :Token WHERE CompteEmail = :Email";
+
+        $req = $pdo->prepare($Update);
+        $req->bindValue(':Token', $Mise[0][0] - $Token);
+        $req->bindValue(':Email', $_SESSION["MiseurUser"]);
+        $req->execute();
+
+    }
+}
 ?>

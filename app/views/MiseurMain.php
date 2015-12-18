@@ -64,7 +64,6 @@ if (!(isset($_SESSION['MiseurUser']) && $_SESSION['MiseurUser'] != ''))
                 Token courant :
                 <input readonly type="text" id="CurToken">
             </div>
-
         </div>
     </div>
 </div>

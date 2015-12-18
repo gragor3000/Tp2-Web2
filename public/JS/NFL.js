@@ -436,6 +436,201 @@ function Bet()//fait la mise de l'utilisateur
     ShowToken();
 }
 
+function ShowMise()//load les info sur les mises de l'utilisateur
+{
+    ShowToken();
+    LoadMise();
+    ShowOld();
+}
+
+function LoadMise()//load les mises et les mets dans la vue
+{
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("POST", "/Miseur/LoadMise", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send();
+
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            var data = xmlhttp.responseText;
+            var json = JSON.parse(data);
+
+            var Host = json.map(function(item){
+                return item["Host"];
+            });
+            var Visitor = json.map(function(item){
+                return item["Visitor"];
+            });
+            var Team = json.map(function(item){
+                return item["Team"];
+            });
+            var Mise = json.map(function(item){
+                return item["MiseurMise"];
+            });
+            var Gain = json.map(function(item){
+                return item["Gain"];
+            });
+            var ID = json.map(function(item){
+                return item["ID"];
+            });
+            TableMise(ID,Host,Visitor,Team,Mise,Gain)
+        }
+    }
+
+}
+
+function TableMise(ID,Host,Visitor,Team,Mise,Gain)//affiche les mises
+{
+    var Table = document.getElementById("Future")
+    Table.innerHTML = "";
+    var game = document.getElementById("MiseID")
+    game.setAttribute("min",ID[0]);
+    game.setAttribute("value",ID[0]);
+    game.setAttribute("max",ID[ID.length-1]);
+    for (var i = 0; i < Host.length; i++) {
+
+        var tr = document.createElement("tr");
+        var HostTd = document.createElement("td");
+        var VisitorTd = document.createElement("td");
+        var TeamTd = document.createElement("td");
+        var MiseTd = document.createElement("td");
+        var GainTd = document.createElement("td");
+
+        HostTd.appendChild(document.createTextNode((ID[i]).toString() + ". "+ Host[i]));
+        VisitorTd.appendChild(document.createTextNode(Visitor[i]));
+        TeamTd.appendChild(document.createTextNode(Team[i]));
+        MiseTd.appendChild(document.createTextNode(Mise[i] + "$"));
+        GainTd.appendChild(document.createTextNode(Gain[i] + "$"));
+
+
+        tr.appendChild(HostTd);
+        tr.appendChild(VisitorTd);
+        tr.appendChild(TeamTd);
+        tr.appendChild(MiseTd);
+        tr.appendChild(GainTd);
+        tr.setAttribute("id", "Ftr." + i.toString());
+        Table.appendChild(tr);
+    }
+}
+
+function DeleteMise()//delete la mise donnée
+{
+    var id = document.getElementById("MiseID");
+    var ValId = id.value;
+
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("POST", "/Miseur/DeleteMise", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send("id="+ValId.toString());
+
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            alert("la mise " + ValId + " à été supprimé");
+            LoadMise();
+            ShowToken();
+        }
+    }
+}
+
+function UpdateMise()//delete la mise donnée
+{
+    var id = document.getElementById("MiseID");
+    var Token = document.getElementById("Montant");
+    var Team = document.getElementById("Team");
+    var ValToken = Token.value;
+    var ValTeam = Team.value;
+    var ValId = id.value;
+
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("POST", "/Miseur/UpdateMise", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send("Mise=" + ValId.toString() + "," + ValTeam.toString() + "," + ValToken.toString());
+
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            alert("la mise " + ValId + " à été modifié");
+            LoadMise();
+            ShowToken();
+        }
+    }
+}
+
+function ShowOld()//montre les anciennes mises
+{
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("POST", "/Miseur/ShowOld", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send();
+
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            var data = xmlhttp.responseText;
+            var json = JSON.parse(data);
+
+            var Host = json.map(function(item){
+                return item["Host"];
+            });
+            var Visitor = json.map(function(item){
+                return item["Visitor"];
+            });
+            var Team = json.map(function(item){
+                return item["Team"];
+            });
+            var Status = json.map(function(item){
+                return item["Status"];
+            });
+            var ID = json.map(function(item){
+                return item["ID"];
+            });
+            LoadOld(Host,Visitor,Team,Status,ID);
+        }
+    }
+}
+
+function LoadOld(Host,Visitor,Team,Status,ID)//met les old mise dans la table
+{
+    var Table = document.getElementById("Old")
+    Table.innerHTML = "";
+    for (var i = 0; i < Host.length; i++) {
+
+        var tr = document.createElement("tr");
+        var HostTd = document.createElement("td");
+        var VisitorTd = document.createElement("td");
+        var TeamTd = document.createElement("td");
+        var StatusTd = document.createElement("td");
+
+        HostTd.appendChild(document.createTextNode((ID[i]).toString() + ". " + Host[i]));
+        VisitorTd.appendChild(document.createTextNode(Visitor[i]));
+        TeamTd.appendChild(document.createTextNode(Team[i]));
+        if(Status == 0)
+            StatusTd.appendChild(document.createTextNode("Perdu"));
+        else
+            StatusTd.appendChild(document.createTextNode("Gagné"));
+
+
+        tr.appendChild(HostTd);
+        tr.appendChild(VisitorTd);
+        tr.appendChild(TeamTd);
+        tr.appendChild(StatusTd);
+        tr.setAttribute("id", "Old." + i.toString());
+        Table.appendChild(tr);
+    }
+}
+
+function HideOld()//montre ou cache les anciennes mises
+{
+    var Table = document.getElementById("TOld");
+    if (Table.style.display == "none")
+        Table.style.display = "inline";
+    else
+        Table.style.display = "none";
+}
+
+
 
 
 

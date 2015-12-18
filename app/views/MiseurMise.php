@@ -20,7 +20,7 @@ if (!(isset($_SESSION['MiseurUser']) && $_SESSION['MiseurUser'] != ''))
 
 </head>
 
-<body role="document" onload="ShowInfo()">
+<body role="document" onload="ShowMise()">
 
 <div class="navbar navbar-default navbar-fixed-topt">
     <div class="container">
@@ -36,7 +36,7 @@ if (!(isset($_SESSION['MiseurUser']) && $_SESSION['MiseurUser'] != ''))
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a  href="/Miseur/Mise">Home</a></li>
+                <li><a href="/Miseur/Home">Home</a></li>
                 <li class="active"><a href="#"> Mises</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -46,8 +46,21 @@ if (!(isset($_SESSION['MiseurUser']) && $_SESSION['MiseurUser'] != ''))
                     </ul>
                 </li>
             </ul>
+            <div class="Bet">
+                Équipe:
+                <select  id="Team">
+                    <option>Host</option>
+                    <option>Visitor</option>
+                </select>
+                Partie:
+                <input id="MiseID" type="number">
+                Montant:
+                <input id="Montant" type="number" min="10" value="10">
+                <button onclick="UpdateMise()" class="btn-primary">Modifier</button>
+                <button onclick="DeleteMise()" class="btn-danger">Supprimer</button>
+            </div>
             <div class="Token">
-                Token :
+                Token courant :
                 <input readonly type="text" id="CurToken">
             </div>
         </div>
@@ -55,9 +68,37 @@ if (!(isset($_SESSION['MiseurUser']) && $_SESSION['MiseurUser'] != ''))
 </div>
 
 <div class="container2">
-    <div class="jumbotron2">
-        <input id="Token" class="form-control" type="number" min="1" value="1">
-        <a onclick="AddToken()" href="#"><img src="/CSS/Image/Paynow.png"></a>
+    <div class="jumbotron3">
+        <button class="btn btn-lg btn-default" onclick="ShowFuture()">Mises</button>
+        <Table id="TFut" class="table table-hover table-striped">
+            <thead>
+            <tr>
+                <th>Host</th>
+                <th>Visitor</th>
+                <th>Team</th>
+                <th>Mise</th>
+                <th>Gain</th>
+            </tr>
+            </thead>
+            <tbody id="Future"></tbody>
+        </Table>
+    </div>
+</div>
+
+<div class="container2">
+    <div class="jumbotron3">
+        <button class="btn btn-lg btn-default" onclick="HideOld()">Anciennes Mises</button>
+        <Table id="TOld" class="table table-hover table-striped">
+            <thead>
+            <tr>
+                <th>Host</th>
+                <th>Visitor</th>
+                <th>Team</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody id="Old"></tbody>
+        </Table>
     </div>
 </div>
 

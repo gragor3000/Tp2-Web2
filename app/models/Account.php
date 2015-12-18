@@ -117,5 +117,34 @@ Class Account
         $pdo = null;
         return $req->fetchAll(PDO::FETCH_NUM);
     }
+
+    public static function LoadMise()//load les info sur les mise dans la bd
+    {
+        try {
+            $pdo = new PDO('sqlite:../app/Models/bd.db');
+        } catch (PDOException $e) {
+            echo 'Connection failed: ' . $e->getMessage();
+        }
+        $Select = "SELECT Mise.ID, Future.Host, Future.Visitor, Mise.Team, Mise.MiseurMise, Mise.Gain FROM Mise INNER JOIN Future ON Mise.Game = Future.id WHERE Mise.Miseur= :Miseur AND Status = -1";
+        $req = $pdo->prepare($Select);
+        $req->bindValue(':Miseur', $_SESSION["MiseurUser"]);
+        $req->execute();
+        return $req->fetchAll(PDO::FETCH_ASSOC);
+        $pdo = null;
+    }
+
+    public static function LoadOld(){//load les anciennes mis a jour
+        try {
+            $pdo = new PDO('sqlite:../app/Models/bd.db');
+        } catch (PDOException $e) {
+            echo 'Connection failed: ' . $e->getMessage();
+        }
+        $Select = "SELECT Mise.ID, Future.Host, Future.Visitor, Mise.Team, Mise.Status FROM Mise INNER JOIN Future ON Mise.Game = Future.id WHERE Mise.Miseur= :Miseur AND(Status = 0 OR Status = 1)";
+        $req = $pdo->prepare($Select);
+        $req->bindValue(':Miseur', $_SESSION["MiseurUser"]);
+        $req->execute();
+        return $req->fetchAll(PDO::FETCH_ASSOC);
+        $pdo = null;
+    }
 }
 

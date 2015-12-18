@@ -26,14 +26,14 @@ Class Miseur extends Controller
         parent::view('MiseurMise');
     }
 
-    public function index()
+    public function index()//ramène a la page d'acceuil
     {
         session_unset();
         session_destroy();
         parent::view('Accueil');
     }
 
-    public static function ShowGain()
+    public static function ShowGain()//appelle le modèle pour les gain
     {
         parent::model('BD');
         $table =  explode(",",$_POST["Gain"]);
@@ -41,11 +41,43 @@ Class Miseur extends Controller
         echo $gain;
     }
 
-    public static function Bet()
+    public static function Bet()//appelle le modèle pour effectuer la mise
     {
         parent::model('BD');
         $table =  explode(",",$_POST["Bet"]);
         BD::Bet($table[0],$table[1],$table[2],$table[3]);
 
+    }
+
+    public static function Home()//ramène a la page d'Acceuil pour un miseur
+    {
+        parent::view('MiseurMain');
+    }
+
+    public static function LoadMise()//load les mises et les redonne au ajax
+    {
+        parent::model("Account");
+        $table = Account::LoadMise();
+        echo json_encode($table);
+    }
+
+    public static function DeleteMise()//supprime la mise
+    {
+        parent::model("BD");
+        BD::DeleteMise($_POST["id"]);
+    }
+
+    public static function UpdateMise()//modifie la mise
+    {
+        parent::model("BD");
+        $table = explode(",",$_POST["Mise"]);
+        BD::UpdateMise($table[0],$table[1],$table[2]);
+    }
+
+    public static function ShowOld()
+    {
+        parent::model("Account");
+        $table =  Account::LoadOld();
+        echo json_encode($table);
     }
 }
