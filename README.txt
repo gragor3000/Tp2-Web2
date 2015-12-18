@@ -1,0 +1,2 @@
+-n'affiche pas les notifications
+-les parties ne se terminent pas automatiquement donc aucun argent ne se remet automatiquement à l'utilisateur mais si tu change le status manuellement dans la bd ils vont apparaitre dans la vue des mises du miseur en tant que anciennes mises

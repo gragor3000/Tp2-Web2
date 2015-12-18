@@ -10,9 +10,11 @@ class Admin extends Controller
 {
     public static function Account()//renvoi au ajax les comptes
     {
-        parent::model("Account");
-        $data = Account::Admin();
-        echo json_encode($data);
+        if (isset($_POST)) {
+            parent::model("Account");
+            $data = Account::Admin();
+            echo json_encode($data);
+        }
     }
 
     public static function  AddAccount()//envoi a la bd les données a ajoutés

@@ -16,18 +16,22 @@ class Client extends Controller
 
     public static function login()//connect l'usager en fonction du son compte
     {
-        parent::model('BD');
+        if (isset($_POST['email'])) {
+            parent::model('BD');
 
-        $value = BD::Login($_POST['email'], $_POST['password']);
+            $value = BD::Login($_POST['email'], $_POST['password']);
 
-        if ($value == 1) {
-            $_SESSION['AdminUser'] = $_POST['email'];
-            parent::view('AdminMain');
-        } else if ($value == 0) {
-            $_SESSION['MiseurUser'] = $_POST['email'];
-            parent::view('MiseurMain');
-        } elseif ($value == -1)
-            parent::view('Accueil');
+            if ($value == 1) {
+                $_SESSION['AdminUser'] = $_POST['email'];
+                parent::view('AdminMain');
+            } else if ($value == 0) {
+                $_SESSION['MiseurUser'] = $_POST['email'];
+                parent::view('MiseurMain');
+            } elseif ($value == -1)
+                parent::view('Accueil');
+        }
+        else
+            self::index();
     }
 
     public static function LoadPastGame()//retourne les stats des parties passée

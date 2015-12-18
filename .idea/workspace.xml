@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="071cfd18-520c-45c7-9a0e-1b1cdc23de24" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Miseur.php" afterPath="$PROJECT_DIR$/app/controllers/Miseur.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/core/Controller.php" afterPath="$PROJECT_DIR$/app/core/Controller.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/.htaccess" afterPath="$PROJECT_DIR$/public/.htaccess" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/CSS/bootstrap-3.3.5-dist/css/bootstrap.css" afterPath="$PROJECT_DIR$/public/CSS/bootstrap-3.3.5-dist/css/bootstrap.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/JS/NFL.js" afterPath="$PROJECT_DIR$/public/JS/NFL.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Admin.php" afterPath="$PROJECT_DIR$/app/controllers/Admin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Client.php" afterPath="$PROJECT_DIR$/app/controllers/Client.php" />
     </list>
     <ignored path="TP1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,18 +28,90 @@
       <file leaf-file-name="Miseur.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/Miseur.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-27.26923">
+            <state vertical-scroll-proportion="0.0">
               <caret line="80" column="33" selection-start-line="80" selection-start-column="33" selection-end-line="80" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NFL.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NFL.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/JS/NFL.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3492927">
+            <state vertical-scroll-proportion="0.0">
               <caret line="623" column="55" selection-start-line="623" selection-start-column="55" selection-end-line="623" selection-end-column="55" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Controller.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/core/Controller.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.846154">
+              <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="App.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/core/App.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.3846154">
+              <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BD.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Models/BD.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.88461536">
+              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="2" selection-end-column="20" />
+              <folding>
+                <marker date="1450462222935" expanded="true" signature="403:495" placeholder="SELECT * FRO... Compte" />
+                <marker date="1450462222935" expanded="true" signature="1093:1117" placeholder="SELECT * FRO... PastScores" />
+                <marker date="1450462222935" expanded="true" signature="1517:1537" placeholder="SELECT * FRO... Future" />
+                <marker date="1450462222935" expanded="true" signature="1948:1968" placeholder="SELECT * FRO... Future" />
+                <marker date="1450462222935" expanded="true" signature="2369:2389" placeholder="SELECT * FRO... Future" />
+                <marker date="1450462222935" expanded="true" signature="2934:2957" placeholder="SELECT * FRO... Standings" />
+                <marker date="1450462222935" expanded="true" signature="3324:3344" placeholder="SELECT * FRO... Future" />
+                <marker date="1450462222935" expanded="true" signature="3739:3757" placeholder="SELECT * FRO... Mise" />
+                <marker date="1450462222935" expanded="true" signature="4165:4200" placeholder="SELECT * FRO... Mise" />
+                <marker date="1450462222935" expanded="true" signature="4649:4684" placeholder="SELECT * FRO... Future" />
+                <marker date="1450462222935" expanded="true" signature="4910:4954" placeholder="SELECT pct F... Standings" />
+                <marker date="1450462222935" expanded="true" signature="5153:5197" placeholder="SELECT pct F... Standings" />
+                <marker date="1450462222935" expanded="true" signature="6126:6196" placeholder="INSERT INTO Mise... " />
+                <marker date="1450462222935" expanded="true" signature="6126:6237" placeholder="INSERT INTO Mise... " />
+                <marker date="1450462222935" expanded="true" signature="6594:6646" placeholder="UPDATE Compt... " />
+                <marker date="1450462222935" expanded="true" signature="7053:7095" placeholder="SELECT Miseu... Mise" />
+                <marker date="1450462222935" expanded="true" signature="7267:7298" placeholder="DELETE FROM " />
+                <marker date="1450462222935" expanded="true" signature="7422:7501" placeholder="UPDATE Compt... " />
+                <marker date="1450462222935" expanded="true" signature="7989:8037" placeholder="SELECT Miseu... Mise" />
+                <marker date="1450462222935" expanded="true" signature="8268:8346" placeholder="UPDATE Mise " />
+                <marker date="1450462222935" expanded="true" signature="8601:8680" placeholder="UPDATE Compt... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Client.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/Client.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.461538">
+              <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Admin.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/Admin.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.28331468">
+              <caret line="16" column="9" selection-start-line="12" selection-start-column="7" selection-end-line="16" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -52,7 +120,7 @@
       <file leaf-file-name="Account.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Models/Account.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-21.076923">
+            <state vertical-scroll-proportion="0.0">
               <caret line="141" column="185" selection-start-line="141" selection-start-column="185" selection-end-line="141" selection-end-column="185" />
               <folding>
                 <marker date="1450405258274" expanded="true" signature="472:524" placeholder="SELECT Compt... Compte" />
@@ -72,7 +140,7 @@
       <file leaf-file-name="MiseurMain.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Views/MiseurMain.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.884615">
+            <state vertical-scroll-proportion="0.0">
               <caret line="87" column="20" selection-start-line="87" selection-start-column="20" selection-end-line="87" selection-end-column="20" />
               <folding />
             </state>
@@ -82,7 +150,7 @@
       <file leaf-file-name="MiseurMise.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Views/MiseurMise.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.923077">
+            <state vertical-scroll-proportion="0.0">
               <caret line="89" column="63" selection-start-line="89" selection-start-column="63" selection-end-line="89" selection-end-column="63" />
               <folding />
             </state>
@@ -144,18 +212,18 @@
         <option value="$PROJECT_DIR$/public/CSS/TP1.css" />
         <option value="$PROJECT_DIR$/app/Models/Espn.py" />
         <option value="$PROJECT_DIR$/app/init.php" />
-        <option value="$PROJECT_DIR$/app/controllers/Admin.php" />
         <option value="$PROJECT_DIR$/app/controllers/API.php" />
         <option value="$PROJECT_DIR$/app/core/Controller.php" />
         <option value="$PROJECT_DIR$/public/.htaccess" />
-        <option value="$PROJECT_DIR$/app/controllers/Client.php" />
         <option value="$PROJECT_DIR$/app/Views/MiseurMain.php" />
         <option value="$PROJECT_DIR$/public/CSS/bootstrap-3.3.5-dist/css/bootstrap.css" />
-        <option value="$PROJECT_DIR$/app/Models/BD.php" />
         <option value="$PROJECT_DIR$/app/controllers/Miseur.php" />
         <option value="$PROJECT_DIR$/app/Models/Account.php" />
         <option value="$PROJECT_DIR$/app/Views/MiseurMise.php" />
         <option value="$PROJECT_DIR$/public/JS/NFL.js" />
+        <option value="$PROJECT_DIR$/app/Models/BD.php" />
+        <option value="$PROJECT_DIR$/app/controllers/Client.php" />
+        <option value="$PROJECT_DIR$/app/controllers/Admin.php" />
       </list>
     </option>
   </component>
@@ -202,8 +270,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -408,6 +474,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -583,6 +651,14 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/Views/MiseurMise.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="89" column="63" selection-start-line="89" selection-start-column="63" selection-end-line="89" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/Client.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -837,22 +913,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/core/App.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/Admin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/API.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -869,27 +929,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/core/Controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.846154">
-          <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/.htaccess">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.42546245">
           <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/Client.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.346153">
-          <caret line="35" column="8" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -897,43 +940,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.763637">
           <caret line="3023" column="22" selection-start-line="3023" selection-start-column="22" selection-end-line="3023" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/BD.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-27.26923">
-          <caret line="289" column="5" selection-start-line="289" selection-start-column="5" selection-end-line="289" selection-end-column="5" />
-          <folding>
-            <marker date="1450404580915" expanded="true" signature="377:469" placeholder="SELECT * FRO... Compte" />
-            <marker date="1450404580915" expanded="true" signature="1067:1091" placeholder="SELECT * FRO... PastScores" />
-            <marker date="1450404580915" expanded="true" signature="1491:1511" placeholder="SELECT * FRO... Future" />
-            <marker date="1450404580915" expanded="true" signature="1922:1942" placeholder="SELECT * FRO... Future" />
-            <marker date="1450404580915" expanded="true" signature="2343:2363" placeholder="SELECT * FRO... Future" />
-            <marker date="1450404580915" expanded="true" signature="2908:2931" placeholder="SELECT * FRO... Standings" />
-            <marker date="1450404580915" expanded="true" signature="3298:3318" placeholder="SELECT * FRO... Future" />
-            <marker date="1450404580915" expanded="true" signature="3713:3731" placeholder="SELECT * FRO... Mise" />
-            <marker date="1450404580915" expanded="true" signature="4139:4174" placeholder="SELECT * FRO... Mise" />
-            <marker date="1450404580915" expanded="true" signature="4623:4658" placeholder="SELECT * FRO... Future" />
-            <marker date="1450404580915" expanded="true" signature="4884:4928" placeholder="SELECT pct F... Standings" />
-            <marker date="1450404580915" expanded="true" signature="5127:5171" placeholder="SELECT pct F... Standings" />
-            <marker date="1450404580915" expanded="true" signature="6100:6170" placeholder="INSERT INTO Mise... " />
-            <marker date="1450404580915" expanded="true" signature="6100:6211" placeholder="INSERT INTO Mise... " />
-            <marker date="1450404580915" expanded="true" signature="6568:6620" placeholder="UPDATE Compt... " />
-            <marker date="1450404580915" expanded="true" signature="7027:7069" placeholder="SELECT Miseu... Mise" />
-            <marker date="1450404580915" expanded="true" signature="7241:7272" placeholder="DELETE FROM " />
-            <marker date="1450404580915" expanded="true" signature="7396:7475" placeholder="UPDATE Compt... " />
-            <marker date="1450404580915" expanded="true" signature="7963:8011" placeholder="SELECT Miseu... Mise" />
-            <marker date="1450404580915" expanded="true" signature="8242:8320" placeholder="UPDATE Mise " />
-            <marker date="1450404580915" expanded="true" signature="8575:8654" placeholder="UPDATE Compt... " />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Account.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-21.076923">
+        <state vertical-scroll-proportion="0.0">
           <caret line="141" column="185" selection-start-line="141" selection-start-column="185" selection-end-line="141" selection-end-column="185" />
           <folding>
             <marker date="1450405258274" expanded="true" signature="472:524" placeholder="SELECT Compt... Compte" />
@@ -951,7 +963,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/Miseur.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-27.26923">
+        <state vertical-scroll-proportion="0.0">
           <caret line="80" column="33" selection-start-line="80" selection-start-column="33" selection-end-line="80" selection-end-column="33" />
           <folding />
         </state>
@@ -959,7 +971,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Views/MiseurMain.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.884615">
+        <state vertical-scroll-proportion="0.0">
           <caret line="87" column="20" selection-start-line="87" selection-start-column="20" selection-end-line="87" selection-end-column="20" />
           <folding />
         </state>
@@ -967,7 +979,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Views/MiseurMise.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.923077">
+        <state vertical-scroll-proportion="0.0">
           <caret line="89" column="63" selection-start-line="89" selection-start-column="63" selection-end-line="89" selection-end-column="63" />
           <folding />
         </state>
@@ -975,8 +987,70 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/JS/NFL.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3492927">
+        <state vertical-scroll-proportion="0.0">
           <caret line="623" column="55" selection-start-line="623" selection-start-column="55" selection-end-line="623" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/core/App.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.3846154">
+          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/core/Controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.846154">
+          <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/BD.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.88461536">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="2" selection-end-column="20" />
+          <folding>
+            <marker date="1450462222935" expanded="true" signature="403:495" placeholder="SELECT * FRO... Compte" />
+            <marker date="1450462222935" expanded="true" signature="1093:1117" placeholder="SELECT * FRO... PastScores" />
+            <marker date="1450462222935" expanded="true" signature="1517:1537" placeholder="SELECT * FRO... Future" />
+            <marker date="1450462222935" expanded="true" signature="1948:1968" placeholder="SELECT * FRO... Future" />
+            <marker date="1450462222935" expanded="true" signature="2369:2389" placeholder="SELECT * FRO... Future" />
+            <marker date="1450462222935" expanded="true" signature="2934:2957" placeholder="SELECT * FRO... Standings" />
+            <marker date="1450462222935" expanded="true" signature="3324:3344" placeholder="SELECT * FRO... Future" />
+            <marker date="1450462222935" expanded="true" signature="3739:3757" placeholder="SELECT * FRO... Mise" />
+            <marker date="1450462222935" expanded="true" signature="4165:4200" placeholder="SELECT * FRO... Mise" />
+            <marker date="1450462222935" expanded="true" signature="4649:4684" placeholder="SELECT * FRO... Future" />
+            <marker date="1450462222935" expanded="true" signature="4910:4954" placeholder="SELECT pct F... Standings" />
+            <marker date="1450462222935" expanded="true" signature="5153:5197" placeholder="SELECT pct F... Standings" />
+            <marker date="1450462222935" expanded="true" signature="6126:6196" placeholder="INSERT INTO Mise... " />
+            <marker date="1450462222935" expanded="true" signature="6126:6237" placeholder="INSERT INTO Mise... " />
+            <marker date="1450462222935" expanded="true" signature="6594:6646" placeholder="UPDATE Compt... " />
+            <marker date="1450462222935" expanded="true" signature="7053:7095" placeholder="SELECT Miseu... Mise" />
+            <marker date="1450462222935" expanded="true" signature="7267:7298" placeholder="DELETE FROM " />
+            <marker date="1450462222935" expanded="true" signature="7422:7501" placeholder="UPDATE Compt... " />
+            <marker date="1450462222935" expanded="true" signature="7989:8037" placeholder="SELECT Miseu... Mise" />
+            <marker date="1450462222935" expanded="true" signature="8268:8346" placeholder="UPDATE Mise " />
+            <marker date="1450462222935" expanded="true" signature="8601:8680" placeholder="UPDATE Compt... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/Client.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.461538">
+          <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/Admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28331468">
+          <caret line="16" column="9" selection-start-line="12" selection-start-column="7" selection-end-line="16" selection-end-column="9" />
           <folding />
         </state>
       </provider>
